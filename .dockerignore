@@ -16,3 +16,14 @@
 !script/dev_build
 !script/package
 !docker/entrypoint.sh
+
+# Required files for the v1.8.0 package build
+!COPYING
+!licenses/
+!licenses/**
+!src/
+!src/piper/
+!src/piper/hebrew/
+!src/piper/hebrew/**
+!src/piper/lithuanian/
+!src/piper/lithuanian/**
