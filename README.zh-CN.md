@@ -22,3 +22,14 @@ docker --context dev2 run --rm --network none \
 ```
 
 预期输出为中文音素列表。`HF_HUB_OFFLINE=1` 避免 tokenizer 在启动时尝试访问 Hugging Face。这一步验证中文音素转换。合成 WAV 还需要另行准备语音模型文件及其配套的 `.onnx.json` 配置。
+
+## 测试 HTTP 语音合成
+
+部署完成后，向 `/synthesize` 发送中文告警文本，并将响应保存为 `test1.wav`。
+
+```bash
+curl -X POST 'https://piper-tts.app.cn:9000/synthesize' \
+  -H 'Content-Type: application/json' \
+  -d '{"text":"警告，变压器诶温度95度。"}' \
+  --output test1.wav
+```
